@@ -3,9 +3,10 @@ package main
 import "fmt"
 
 func main() {
-	fmt.Println("Shuffle up and deal!")
-
 	cards := newDeck()
 
-	cards.print()
+	fmt.Println("Shuffle up and deal!")
+	hand, remainingDeck := cards.deal(2)
+	hand.print()
+	remainingDeck.print()
 }
