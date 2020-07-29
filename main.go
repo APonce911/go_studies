@@ -9,4 +9,5 @@ func main() {
 	hand, remainingDeck := cards.deal(2)
 	hand.print()
 	remainingDeck.print()
+	fmt.Println(cards.toString())
 }
