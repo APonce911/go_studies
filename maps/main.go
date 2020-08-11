@@ -3,10 +3,17 @@ package main
 import "fmt"
 
 func main() {
-	myInts := make(map[int]int)
-	myInts[1]=10
-	myInts[2]=20
-	myInts[1]=30
+	colors := map[string]string{
+		"red":   "#ff0000",
+		"green": "#4bf745",
+		"white": "#ffffff",
+	}
 
-	fmt.Println(myInts)
+	printMap(colors)
+}
+
+func printMap(c map[string]string) {
+	for color, hex := range c {
+		fmt.Println("Hex code for", color, "is", hex)
+	}
 }
