@@ -14,18 +14,27 @@ func main() {
 		"http://facebook.com",
 	}
 
+	channel := make(chan string)
+
 	for _, link := range links {
-		checkLink(link)
+		go checkLink(link, channel)
+	}
+
+	for i := 0; i < len(links); i++{
+		fmt.Println(<- channel)
 	}
 }
 
-func checkLink(link string) {
+func checkLink(link string,channel chan string) {
 	_, err := http.Get(link)
 
 	if err != nil {
 		fmt.Println(link, "might be down!")
+		channel <- "might be down I think"
 		return
 	}
 
 	fmt.Println(link, "is Up!")
+	channel <- "yes it's up"
+
 }
