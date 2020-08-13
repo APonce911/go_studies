@@ -20,8 +20,8 @@ func main() {
 		go checkLink(link, channel)
 	}
 
-	for {
-		go checkLink(<-channel, channel)
+	for l := range channel {
+		go checkLink(l, channel)
 	}
 }
 
