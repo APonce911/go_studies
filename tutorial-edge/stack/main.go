@@ -16,7 +16,7 @@ type Flight struct {
 }
 
 func (s *Stack) Pop() (Flight, error) {
-	if len(s.Flights) == 0 {
+	if s.IsEmpty() {
 		return Flight{}, errors.New("StackIsEmpty")
 	}
 
@@ -33,7 +33,7 @@ func (s *Stack) Push(f Flight) {
 }
 
 func (s *Stack) Peek() (Flight, error) {
-	if len(s.Flights) == 0 {
+	if s.IsEmpty() {
 		return Flight{}, errors.New("StackIsEmpty")
 	}
 
@@ -41,6 +41,9 @@ func (s *Stack) Peek() (Flight, error) {
 }
 
 func (s *Stack) IsEmpty() bool {
+	if len(s.Flights) == 0 {
+		return true
+	}
 	return false
 }
 
