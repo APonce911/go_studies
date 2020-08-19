@@ -18,3 +18,5 @@ Pop
 The third and final part of this challenge will be implementing the Pop function.
 
 This method will allow us to pop an element off the top of our Items stack and return to us the top flight.
+
+https://tutorialedge.net/challenges/go/implementing-a-stack/
