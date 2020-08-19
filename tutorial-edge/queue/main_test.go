@@ -30,8 +30,8 @@ func TestPush(t *testing.T) {
 	}
 
 	lastFlight := flightsQueue.Items[flightsQueueLength-1]
-	if lastFlight.Origin != "CHINA" {
-		t.Errorf("Expected CHINA - MEXICO flight, got %v - %v", lastFlight.Origin, lastFlight.Destination)
+	if lastFlight.Origin != "BRAZIL" {
+		t.Errorf("Expected BRAZIL - USA flight, got %v - %v", lastFlight.Origin, lastFlight.Destination)
 	}
 }
 
@@ -39,14 +39,14 @@ func TestPeak(t *testing.T) {
 	flightsQueue := Queue{
 		Items: []Flight{
 			Flight{
-				Origin:      "BRAZIL",
-				Destination: "USA",
-				Price:       200,
-			},
-			Flight{
 				Origin:      "CHINA",
 				Destination: "MEXICO",
 				Price:       500,
+			},
+			Flight{
+				Origin:      "BRAZIL",
+				Destination: "USA",
+				Price:       200,
 			},
 		},
 	}
@@ -63,14 +63,14 @@ func TestPop(t *testing.T) {
 	flightsQueue := Queue{
 		Items: []Flight{
 			Flight{
-				Origin:      "BRAZIL",
-				Destination: "USA",
-				Price:       200,
-			},
-			Flight{
 				Origin:      "CHINA",
 				Destination: "MEXICO",
 				Price:       500,
+			},
+			Flight{
+				Origin:      "BRAZIL",
+				Destination: "USA",
+				Price:       200,
 			},
 		},
 	}

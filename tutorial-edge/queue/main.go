@@ -20,16 +20,14 @@ func (q *Queue) Pop() (Flight, error) {
 		return Flight{}, errors.New("StackIsEmpty")
 	}
 
-	lastIndex := len(q.Items) - 1
-	f := q.Items[lastIndex]
-
-	q.Items = q.Items[:lastIndex]
+	f := q.Items[0]
+	q.Items = q.Items[1:]
 
 	return f, nil
 }
 
 func (q *Queue) Push(f Flight) {
-	q.Items = append([]Flight{f}, q.Items...)
+	q.Items = append(q.Items, f)
 }
 
 func (q *Queue) Peek() (Flight, error) {
@@ -38,7 +36,7 @@ func (q *Queue) Peek() (Flight, error) {
 		return Flight{}, errors.New("StackIsEmpty")
 	}
 
-	return q.Items[len(q.Items)-1], nil
+	return q.Items[0], nil
 }
 
 func (q *Queue) IsEmpty() bool {
